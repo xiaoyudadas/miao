@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .daquan{
+       display: none;         /*把checkbox的框都隐藏起来 */
+    }
+    .yuansu{
+      box-shadow: 0 0 0 0.5px gray;  /*大圈外框颜色*/
+      display: inline-block;
+      width: 62px;
+      height:31px;
+      border-radius:31px;
+      background-color: whitesmoke;   /*大圈的背景颜色*/
+      position: relative;     /*把自己变成绝对定位*/
+    }
+    .yuansu::before{           /*在.yuansu前加东西*/
+      content: '';             /*加个空的*/
+      display: inline-block;
+      width: 29px;
+      height: 29px;
+      border-radius: 30px;     /*加个宽高为29 圆角为30的小圆*/
+      background-color: white;     /*小圆的颜色*/
+      xbox-shadow:whitesmoke 2px 2px 1px 0px;
+      position: absolute;       /*相对于定位祖先也就是前面的绝对定位变化*/
+      left: 1px;
+      top:1px;
+      transition: all 1s;
+    }
+    .daquan:checked + .yuansu::before{     /*当大圈被点击时小圆的变化*/
+      left: 32px;          /*小圆离大圈左边32px*/
+      xbox-shadow:white
+
+
+    }
+    .daquan:checked + .yuansu {
+      background-color: rgb(48, 243, 77);    /*当大圈被点击时 大圈边框为绿色*/
+      box-shadow: 0 0 0 0.5px rgb(48, 243, 77);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <input type="checkbox" class="daquan" id="lianjie">
+    <label for="lianjie"  class="yuansu"></label>
+  </div>
+</body>
+</html>
