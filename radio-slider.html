@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+
+.image{
+  width:690px;
+  height:353px;
+  position:relative;
+  display:inline-block;
+  overflow: hidden;
+  xborder:5px solid;
+}
+.image img{
+  transition:1s;
+  position:absolute;
+  width:100%;
+  height:100%;
+  left:100%;
+}
+section{
+  position:relative;
+  border:5px solid;
+   width:690px;
+  height:353px;
+}
+input{
+  position:relative;
+  top:353px;
+  display:none;
+  z-index:8;
+}
+.lab{
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  font-size:0;
+  z-index:8;
+}
+.lab label {
+  margin: 3px;
+  width: 10px;
+  height: 10px;
+  background-color: grey;
+  cursor: pointer;
+  display:inline-block;
+}
+.lab label:hover {
+  background-color: red;
+}
+input:nth-child(1):checked~.image img:nth-child(1),
+input:nth-child(2):checked~.image img:nth-child(2),
+input:nth-child(3):checked~.image img:nth-child(3),
+input:nth-child(4):checked~.image img:nth-child(4){
+     left:0;
+}
+input:nth-child(1):checked~.lab label:nth-child(1),
+input:nth-child(2):checked~.lab label:nth-child(2),
+input:nth-child(3):checked~.lab label:nth-child(3),
+input:nth-child(4):checked~.lab label:nth-child(4) {
+  background-color: red;
+}
+
+  </style>
+</head>
+<body>
+  <section>
+
+    <input type="radio" id="r1-1" name="radio1" checked>
+    <input type="radio" id="r1-2" name="radio1">
+    <input type="radio" id="r1-3" name="radio1">
+    <input type="radio" id="r1-4" name="radio1">
+
+  <div class="image">
+    <img src="https://pic3.zhimg.com/v2-adddc935474d60e1d3c721be4e12f42f_r.jpg?source=1940ef5c">
+    <img src="https://pic1.zhimg.com/50/v2-688e19c0896e062cd6297f7446500502_hd.jpg?source=1940ef5c">
+    <img src="https://pic1.zhimg.com/v2-f34b509b7570e78b64c667ecd4e8fa6a_r.jpg?source=1940ef5c">
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fww3.sinaimg.cn%2Fmw690%2F640da591ly1h47rk6rdsmj23401lctyl.jpg&refer=http%3A%2F%2Fwww.sina.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1660906427&t=4308772c02b877ca1bbe0d7f504f4482">
+  </div>
+  <div class="lab">
+    <label for="r1-1"></label>
+    <label for="r1-2"></label>
+    <label for="r1-3"></label>
+    <label for="r1-4"></label>
+  </div>
+  </section>
+</body>
+</html>
