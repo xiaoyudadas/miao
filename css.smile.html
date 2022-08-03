@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .xiao{
+      width: 1000px;
+      height: 1000px;
+      margin: 100px auto;
+      border: 1px solid;
+      border-radius: 50%;
+      position: relative;
+      animation: xiao 5s linear infinite;
+      background-image: url(https://vdposter.bdstatic.com/c38124c4499774135bbcd9a937996d1f.jpeg?x-bce-process=image%2Fresize%2Cm_fill%2Cw_593%2Ch_395%2Fquality%2Cq_60);
+    }
+    .xiao ::after{
+      content: "";
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 1px solid;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .lian{
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      border: 1px solid;
+      border-radius: 50%;
+      position: relative;
+      animation: xiao reverse 5s linear infinite;
+
+    }
+
+    @keyframes xiao {0%
+      {
+        transform: rotate(0);
+      }100%{
+        transform: rotate(360deg);
+      }
+
+    }
+
+  </style>
+  <body>
+    <div class="xiao">
+      <div class="lian">
+        <img src="https://ts1.cn.mm.bing.net/th/id/R-C.70a41ddb1f0404845e0ec526e024148f?rik=HCsUzuPZ8XrlCQ&riu=http%3a%2f%2fi0.hdslb.com%2fbfs%2farchive%2f03d9597cb50e265516856f2a90bebdb179174f8f.jpg&ehk=7jcAZ%2bFLpV8OIPwFvaoh4KqsICQZEq%2fCOGZGDtDMlKE%3d&risl=&pid=ImgRaw&r=0" width="300px" height="300px" alt="">
+      </div>
+    </div>
+  </body>
+</head>
+</html>
