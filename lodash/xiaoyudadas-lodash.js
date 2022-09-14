@@ -11,6 +11,36 @@ var xiaoyudadas = {
         }
       }
       return temp
-    }
+    },
   
+  concat:
+    function(array,...value) {
+      var result = []
+      for (var i = 0; i < array.length; i++){
+        result = result.concat(...value)
+      }
+      return result
+    },
+  
+  fill:
+    function(array,value) {
+      var ary = []
+      ary.fill(value)
+      return ary
+    },
+  
+  indexOf:
+    function(array,value,fromIndex = 0) {
+      for (var i = fromIndex; i < array.length; i++){
+        if (array[i] == value) {
+          return i
+        }
+      }
+      return -1
+    },
+  
+  remove:
+    function (array, predicate(value)){
+      
+    }
 }
