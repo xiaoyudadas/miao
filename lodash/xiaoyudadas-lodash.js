@@ -14,9 +14,10 @@ var xiaoyudadas = {
     },
   
   concat:
-    function(array,[value]) {
-      for (var i = 0; i < [value].length; i++){
-        array.push([value])
+    function (array, ...value) {
+      var val = [...value]
+      for (var i = 0; i < val.length; i++){
+        array.push(...value)
       }
       return array
     },
@@ -66,28 +67,29 @@ var xiaoyudadas = {
   findIndex:
     function (array, predicate, fromIndex = 0) {
       for (var i = fromIndex; i < array.length; i++){
-        var preducate = array[i]
-        if (predicate == true) {
+        if (array[i] == true) {
           return i
+        } else {
+          return -1
         }
       }
-      return -1
+      
     },
   findLastIndex:
     function (array, predicate, fromIndex = array.length - 1) {
       for (var i = fromIndex; i >= 0; i--){
-        var predicate = array[i]
-        if (predicate == true) {
+        if (array[i] == true) {
           return i
+        } else {
+          return -1
         }
       }
-      return -1
     },
   flatten:
     function (array) {
       var result = []
       for (var i = 0; i < array.length; i++){
-        if (array.isArray(array[i])) {
+        if (Array.isArray(array[i])) {
           for (var j = 0; j < array[i].length; j++){
             result.push(array[i][j])
           }
