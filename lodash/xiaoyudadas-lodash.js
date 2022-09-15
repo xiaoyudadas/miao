@@ -14,19 +14,19 @@ var xiaoyudadas = {
     },
   
   concat:
-    function(array,...value) {
-      var result = []
-      for (var i = 0; i < array.length; i++){
-        result = result.concat(...value)
+    function(array,[value]) {
+      for (var i = 0; i < [value].length; i++){
+        array.push([value])
       }
-      return result
+      return array
     },
   
   fill:
-    function(array,value) {
-      var ary = []
-      ary.fill(value)
-      return ary
+    function(array,value,start = 0,end = array.length) {
+      for (var i = start; i < end; i++){
+        array[i] = value
+      }
+      return array
     },
   
   indexOf:
@@ -40,14 +40,62 @@ var xiaoyudadas = {
     },
   
   compact:
-    function(array){
+    function (array) {
+      var result = []
       for (var i = 0; i < array.length; i++){
         if (array[i]) {
-          array.compact(array[i])
+          result.push(array[i])
         }
       }
-      return array
+      return result
+    },
+  drop:
+    function (array, n) {
+      var result = []
+      for (var i = 0; i < array.length; i++){
+        if (n == null) {
+          n = 1
+        }
+        if (i >= n) {
+          result.push(array[i])
+        }
+      }
+      return result
     },
   
+  findIndex:
+    function (array, predicate, fromIndex = 0) {
+      for (var i = fromIndex; i < array.length; i++){
+        var preducate = array[i]
+        if (predicate == true) {
+          return i
+        }
+      }
+      return -1
+    },
+  findLastIndex:
+    function (array, predicate, fromIndex = array.length - 1) {
+      for (var i = fromIndex; i >= 0; i--){
+        var predicate = array[i]
+        if (predicate == true) {
+          return i
+        }
+      }
+      return -1
+    },
+  flatten:
+    function (array) {
+      var result = []
+      for (var i = 0; i < array.length; i++){
+        if (array.isArray(array[i])) {
+          for (var j = 0; j < array[i].length; j++){
+            result.push(array[i][j])
+          }
+        } else {
+          result.push(array[i])
+        }
+      } 
+      return result 
+    },
   
 }
