@@ -39,8 +39,15 @@ var xiaoyudadas = {
       return -1
     },
   
-  remove:
-    function (array, predicate(value)){
-      
-    }
+  compact:
+    function(array){
+      for (var i = 0; i < array.length; i++){
+        if (array[i]) {
+          array.compact(array[i])
+        }
+      }
+      return array
+    },
+  
+  
 }
