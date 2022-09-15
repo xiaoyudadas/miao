@@ -99,5 +99,25 @@ var xiaoyudadas = {
       } 
       return result 
     },
-  
+  flattenDeep:
+    function (array) {
+      for (var i = 0; i < array.length; i++){
+        if (Array.isArray(array[i])) {
+          array = array[i]
+        }
+      }
+      return array
+    },
+  flattenDepth:
+    function (array, depth) {
+      for (var i = 0; i < array.length; i++){
+        if (Array.isArray(array[i])) {
+          array = array[i]
+          if (i == depth) {
+            return array
+          }
+        }
+
+      }
+    },
 }
