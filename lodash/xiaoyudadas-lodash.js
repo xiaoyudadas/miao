@@ -16,8 +16,11 @@ var xiaoyudadas = {
   concat:
     function (array, ...value) {
       var val = [...value]
+      
       for (var i = 0; i < val.length; i++){
-        array.push(...value)
+        if (Array.isArray(val)) {
+          array.push(val[i])
+        }
       }
       return array
     },
@@ -65,15 +68,13 @@ var xiaoyudadas = {
     },
   
   findIndex:
-    function (array, predicate, fromIndex = 0) {
+    function (array, fromIndex = 0) {
       for (var i = fromIndex; i < array.length; i++){
         if (array[i] == true) {
           return i
-        } else {
-          return -1
-        }
+        } 
       }
-      
+      return -1
     },
   findLastIndex:
     function (array, predicate, fromIndex = array.length - 1) {
@@ -120,4 +121,96 @@ var xiaoyudadas = {
 
       }
     },
+  head:
+    function (array) {
+      if (array == null) {
+        return undefined 
+      } else {
+        return array[0]
+      }
+    },
+  initial:
+    function(array) {
+      for (var i = 0; i < array.length; i++){
+        array.slice(0,array.length - 1)
+      }
+      return array
+    },
+  join:
+    function (array, separator='') {
+      for (var i = 0; i < array.length; i++){
+        array[0] = array[0] + separator
+        if (array[i] == array.length - 1) {
+          array[i] = array[i] + ''
+        }
+      }
+      return array
+    },
+  last:
+    function (array) {
+      return array.length - 1
+    },
+  lastIndexOf:
+    function (array, value, fromIndex = array.length - 1) {
+      for (var i = fromIndex; i >= 0; i--){
+        if (value == array[i]) {
+          return i
+        }
+      }
+      return -1
+    },
+  pull:
+    function (array, values) {
+      for (var i = 0; i < array.length; i++){
+        if (array[i] == values) {
+          array.remove(array[i])
+        }
+      }
+      return array
+  },
+  reverse:
+    function (array) {
+      var i = 0,j = array.length - 1
+      while (i < j) {
+        var temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
+        i++
+        j--
+      }
+      return array
+    },
+  slice:
+    function (array, start, end) {
+      var result = []
+      for (var i = 0; i < array.length; i++){
+        if (i < start || i > end) {
+          result.push(array[i])
+        }
+      }
+      return result 
+    },
+  every:
+    function (collection, predicate) {
+      if (collection == null) {
+        return true
+      }
+      for (var i = 0; i < collection.length; i++){
+        if (!predicate(collection[i], i, collection)) {
+          return false
+        }
+      }
+      return true 
+    },
+  
+  some:
+    function (collection, predicate) {
+      for(var i = 0; i < collection.length; i++){
+        if (!predicate(collection[i], i, collection)) {
+          return true
+        }
+      }
+      return false
+    },
+  
 }
