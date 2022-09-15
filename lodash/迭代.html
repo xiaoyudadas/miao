@@ -1,0 +1,60 @@
+<script>
+
+往对象里添加数组
+  var byName = {}
+  for(var i = 0;i < ancestry.length;i++){
+    var person = ancestry[i]
+    var personName = person.name
+    byName[personName] = person
+  }
+  
+  byId = {}
+   
+  for(var i = 0;i < ancestry.length;i++){
+  byId[ancestry[i].id] = ancestry[i]
+  }
+
+  function groupBy(ary,计算分组名称的函数){
+    var result = {}
+    for(var i = 0;i < ary.length;i++){
+      result[ ary[i][计算分组名称的函数]] = ary[i]
+    }
+  }
+  --------------------------------------------
+  function 根据某个维度建立映射(ary,维度的名称){
+    var result = {}
+    for(var i = 0;i < ary.length;i++){
+      result[ary[i][维度的名称]] = ary[i]
+    } 
+    return result 
+  }
+  -----------------------------------------------
+  function keyBy(ary,计算key值得函数){
+    var result = {}
+    for(var i = 0;i < ary.length;i++){
+      var key = 计算key值得函数(ary[i])
+      result[key] = ary[i]
+    }
+    return result
+  }
+
+  function keyBy1(ary,propName){
+    var result = {}
+    for(var i = 0;i < ary.length;i++){
+    
+      result [ary[i][propName]] = ary[i]
+    }
+    return result
+  }
+
+  function keyBy2(ary,计算key值得函数){
+    if(typeof 计算key值得函数)
+    var result = {}
+    for(var i = 0;i < ary.length;i++){
+      var key = 计算key值得函数(ary[i])
+      result[key] = ary[i]
+    }
+    return result
+  }
+  ------------------------------------------------
+</script>

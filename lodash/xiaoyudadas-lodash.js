@@ -14,12 +14,14 @@ var xiaoyudadas = {
     },
   
   concat:
-    function (array, ...value) {
-      var val = [...value]
-      
-      for (var i = 0; i < val.length; i++){
-        if (Array.isArray(val)) {
-          array.push(val[i])
+    function (array, values) {
+      for (var i = 0; i < values.length; i++){
+        if (!Array.isArray(values[i])) {
+          array.push(values[i])
+        } else {
+          for (var j = 0; j < values[i].length; j++){
+            array.push(values[i][j])
+          }
         }
       }
       return array
@@ -131,24 +133,22 @@ var xiaoyudadas = {
     },
   initial:
     function(array) {
-      for (var i = 0; i < array.length; i++){
-        array.slice(0,array.length - 1)
-      }
-      return array
+      return array.slice(0,array.length - 1)
     },
   join:
-    function (array, separator='') {
+    function (array, separator) {
+      var str = ''
       for (var i = 0; i < array.length; i++){
-        array[0] = array[0] + separator
-        if (array[i] == array.length - 1) {
-          array[i] = array[i] + ''
+        str += array[i]
+        if (i < array.length - 1) {
+          str += separator
         }
       }
-      return array
+      return str 
     },
   last:
     function (array) {
-      return array.length - 1
+      return array[array.length - 1]
     },
   lastIndexOf:
     function (array, value, fromIndex = array.length - 1) {
@@ -161,12 +161,13 @@ var xiaoyudadas = {
     },
   pull:
     function (array, values) {
+      var result = []
       for (var i = 0; i < array.length; i++){
-        if (array[i] == values) {
-          array.remove(array[i])
+        if (array[i] !== values) {
+          result.push(array[i])
         }
       }
-      return array
+      return result
   },
   reverse:
     function (array) {
